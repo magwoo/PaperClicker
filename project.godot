@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="Toilet Clicker"
+run/main_scene="res://gameplay/game.tscn"
 boot_splash/show_image=false
 config/icon="res://icon.png"
 
@@ -44,3 +45,4 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.427451, 0.290196, 0.54902, 1 )
