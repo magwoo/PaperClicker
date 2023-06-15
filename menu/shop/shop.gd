@@ -13,10 +13,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if get_global_mouse_position().x > viewport.size.x - 420 && !opened:
+	if get_global_mouse_position().x > viewport.size.x - 240.0 && !opened:
 		opened = true
 		open()
-	if get_global_mouse_position().x < viewport.size.x - 420 && opened:
+	if get_global_mouse_position().x < viewport.size.x - 240.0 && opened:
 		opened = false
 		close()
 

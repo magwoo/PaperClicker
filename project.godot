@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "Paper",
+"language": "GDScript",
+"path": "res://gameplay/paper/paper.gd"
+}, {
 "base": "Panel",
 "class": "Shop",
 "language": "GDScript",
 "path": "res://menu/shop/shop.gd"
 } ]
 _global_script_class_icons={
+"Paper": "",
 "Shop": ""
 }
 

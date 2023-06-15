@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://gameplay/paper/paper.svg" type="Texture" id=1]
 [ext_resource path="res://gameplay/paper/paper.gd" type="Script" id=2]
 [ext_resource path="res://gameplay/paper/glow.svg" type="Texture" id=3]
-
-[sub_resource type="Curve" id=1]
-_data = [ Vector2( 0, 1 ), 0.0, -5.25794, 0, 0, Vector2( 0.207547, 1 ), 0.946429, 0.946429, 0, 0, Vector2( 1, 1 ), 0.6625, 0.0, 0, 0 ]
+[ext_resource path="res://gameplay/paper/press_curve.tres" type="Curve" id=4]
+[ext_resource path="res://gameplay/paper/press_sound_low.wav" type="AudioStream" id=5]
+[ext_resource path="res://gameplay/paper/press_sound_high.wav" type="AudioStream" id=6]
 
 [node name="Paper" type="Control"]
 anchor_left = 0.5
@@ -13,7 +13,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 script = ExtResource( 2 )
-animation_curve = SubResource( 1 )
+animation_curve = ExtResource( 4 )
 
 [node name="Glow" type="Sprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0.15 )
@@ -43,3 +43,9 @@ margin_bottom = 240.0
 focus_mode = 0
 enabled_focus_mode = 0
 keep_pressed_outside = true
+
+[node name="LowPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="HighPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
