@@ -10,3 +10,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	time += delta
+
+
+func float2vec(f: float) -> Vector2:
+	return Vector2(f, f)
