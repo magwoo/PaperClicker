@@ -17,16 +17,19 @@ void vertex() {
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
 shader_param/motion = Vector2( -50, -25 )
-shader_param/scale = 2.0
+shader_param/scale = 0.5
 
 [node name="Background" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_clip_content = true
 script = ExtResource( 2 )
 
 [node name="Texture" type="TextureRect" parent="."]
 material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 1548.0
+margin_bottom = 1259.0
 texture = ExtResource( 1 )
 stretch_mode = 2
