@@ -21,7 +21,6 @@ shader_param/scale = 0.5
 
 [node name="Background" type="CanvasLayer"]
 layer = -100
-visible = false
 script = ExtResource( 1 )
 
 [node name="Texture" type="TextureRect" parent="."]

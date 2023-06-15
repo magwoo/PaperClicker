@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/texture.svg-4ed816675fc29548511b4b8096931102.stex"
+path="res://.import/glow.svg-5285e2f6d503115d6be148d51119e904.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gameplay/paper/texture.svg"
-dest_files=[ "res://.import/texture.svg-4ed816675fc29548511b4b8096931102.stex" ]
+source_file="res://gameplay/paper/glow.svg"
+dest_files=[ "res://.import/glow.svg-5285e2f6d503115d6be148d51119e904.stex" ]
 
 [params]
 
@@ -32,4 +32,4 @@ process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
-svg/scale=5.0
+svg/scale=7.5

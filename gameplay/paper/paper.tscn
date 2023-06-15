@@ -1,14 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://gameplay/paper/texture.svg" type="Texture" id=1]
+[ext_resource path="res://gameplay/paper/paper.svg" type="Texture" id=1]
 [ext_resource path="res://gameplay/paper/paper.gd" type="Script" id=2]
+[ext_resource path="res://gameplay/paper/glow.svg" type="Texture" id=3]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, -5.25794, 0, 0, Vector2( 0.207547, 1 ), 0.946429, 0.946429, 0, 0, Vector2( 1, 1 ), 0.6625, 0.0, 0, 0 ]
 
 [node name="Paper" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 script = ExtResource( 2 )
 animation_curve = SubResource( 1 )
+
+[node name="Glow" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.15 )
+texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
