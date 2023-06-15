@@ -6,6 +6,8 @@ export var move_speed: float = 2.5
 export var rotation_range: float = 0.2
 export var rotation_speed: float = 2.25
 export var glow_rotation_speed: float = 0.5
+export var glow_opacity: float = 0.15
+export var glow_opacity_range: float = 0.05
 export(Curve) var animation_curve: Curve
 
 onready var sprite: Sprite = $Sprite
@@ -20,11 +22,13 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	sprite.position.y = sin(Global.time * move_speed) * move_range
-	sprite.rotation = cos(Global.time * rotation_speed) * rotation_range
+	var time: float = Global.time
+	sprite.position.y = sin(time * move_speed) * move_range
+	sprite.rotation = cos(time * rotation_speed) * rotation_range
 	shadow.scale = Vector2.ONE - sprite.scale + Global.float2vec(1.075)
 	glow.rotate(glow_rotation_speed * delta)
 	glow.position.y = sprite.position.y
+	glow.self_modulate.a = glow_opacity + sin(time * 2.0) * glow_opacity_range
 	shadow.rotation = sprite.rotation / 3.0
 
 
