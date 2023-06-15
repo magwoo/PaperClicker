@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Panel",
+"class": "Shop",
+"language": "GDScript",
+"path": "res://menu/shop/shop.gd"
+} ]
+_global_script_class_icons={
+"Shop": ""
+}
+
 [application]
 
 config/name="Toilet Clicker"
