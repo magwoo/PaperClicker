@@ -9,6 +9,7 @@ export(float, 0.0, 5.0, 0.1) var rotation_speed: float = 2.25
 export(float, 0.0, 5.0, 0.1) var glow_rotation_speed: float = 0.5
 export(float, 0.0, 1.0, 0.05) var glow_opacity: float = 0.15
 export(float, 0.0, 0.5, 0.01) var glow_opacity_range: float = 0.05
+export(PackedScene) var press_number_packed: PackedScene
 export(Curve) var animation_curve: Curve
 
 onready var paper: Sprite = $Sprite
@@ -38,6 +39,10 @@ func _process(delta: float) -> void:
 func press() -> void:
 	tween.interpolate_method(self, '_curve_sprite_scale', 0.0, 1.0, 0.35)
 	Data.add_score(Global.current_multiplier)
+	var node: PressNumber = press_number_packed.instance()
+	node.rect_position = get_global_mouse_position()
+	node.text = '+' + str(Global.current_multiplier)
+	Events.emit_signal('spawn_temp_node', node)
 	player_high.play()
 	player_low.play()
 	tween.start()

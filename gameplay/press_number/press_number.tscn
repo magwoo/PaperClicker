@@ -15,3 +15,15 @@ custom_colors/font_color = Color( 0.941176, 0.941176, 0.941176, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "+1"
 script = ExtResource( 2 )
+
+[node name="Shadow" type="Label" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 3.0
+margin_bottom = 46.0
+custom_colors/font_color = Color( 0, 0, 0, 0.2 )
+custom_fonts/font = SubResource( 1 )
+text = "+1"
