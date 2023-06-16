@@ -15,15 +15,12 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if _is_mouse_open() && !opened:
-		opened = true
-		open()
-	if !_is_mouse_open() && opened:
-		opened = false
-		close()
+	if _is_mouse_open() && !opened: open()
+	if !_is_mouse_open() && opened: close()
 
 
 func open() -> void:
+	opened = true
 	tween.interpolate_property(
 		self, 'rect_min_size', self.rect_min_size, Vector2(menu_width, 0.0),
 		0.2, Tween.TRANS_BACK, Tween.EASE_OUT
@@ -31,6 +28,7 @@ func open() -> void:
 
 
 func close() -> void:
+	opened = false
 	tween.interpolate_property(
 		self, 'rect_min_size', self.rect_min_size, Vector2(0.0, 0.0), 0.2,
 		Tween.TRANS_BACK, Tween.EASE_OUT

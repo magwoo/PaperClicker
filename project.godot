@@ -35,6 +35,7 @@ config/icon="res://icon.png"
 
 Global="*res://global/global.gd"
 Background="*res://global/background/background.tscn"
+Data="*res://global/data.gd"
 
 [debug]
 

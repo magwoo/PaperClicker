@@ -18,4 +18,14 @@ size_flags_vertical = 3
 
 [node name="Paper" parent="Gameplay" instance=ExtResource( 3 )]
 
+[node name="Scores" type="Label" parent="Gameplay"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -296.0
+margin_right = 296.0
+margin_bottom = 82.0
+text = "123"
+align = 1
+valign = 1
+
 [node name="Shop" parent="." instance=ExtResource( 2 )]
