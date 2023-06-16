@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://gameplay/paper/paper.gd"
 }, {
-"base": "VBoxContainer",
+"base": "MarginContainer",
 "class": "Shop",
 "language": "GDScript",
 "path": "res://menu/shop/shop.gd"
@@ -45,6 +45,8 @@ gdscript/warnings/enable=false
 
 window/size/width=1280
 window/size/height=720
+window/size/test_width=1600
+window/size/test_height=900
 window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
