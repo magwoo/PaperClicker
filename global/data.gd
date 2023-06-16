@@ -11,8 +11,8 @@ func _ready() -> void:
 	pass
 
 
-func add_score() -> void:
-	set_scores(scores + 1)
+func add_score(value: int = 1) -> void:
+	set_scores(scores + value)
 	emit_signal('score_added', scores)
 
 

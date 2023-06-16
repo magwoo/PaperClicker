@@ -2,6 +2,7 @@ extends Node
 
 
 var time: float = 0.0
+var current_multiplier: int = 1
 
 
 func _ready() -> void:

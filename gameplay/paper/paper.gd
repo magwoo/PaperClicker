@@ -37,9 +37,9 @@ func _process(delta: float) -> void:
 
 func press() -> void:
 	tween.interpolate_method(self, '_curve_sprite_scale', 0.0, 1.0, 0.35)
+	Data.add_score(Global.current_multiplier)
 	player_high.play()
 	player_low.play()
-	Data.add_score()
 	tween.start()
 
 

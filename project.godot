@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "HBoxContainer",
+"class": "Game",
+"language": "GDScript",
+"path": "res://gameplay/game.gd"
+}, {
+"base": "ProgressBar",
+"class": "MultiplierBar",
+"language": "GDScript",
+"path": "res://menu/multiplier_bar/multiplier_bar.gd"
+}, {
 "base": "Control",
 "class": "Paper",
 "language": "GDScript",
@@ -20,6 +30,8 @@ _global_script_classes=[ {
 "path": "res://menu/shop/shop.gd"
 } ]
 _global_script_class_icons={
+"Game": "",
+"MultiplierBar": "",
 "Paper": "",
 "Shop": ""
 }
@@ -36,6 +48,7 @@ config/icon="res://icon.png"
 Global="*res://global/global.gd"
 Background="*res://global/background/background.tscn"
 Data="*res://global/data.gd"
+Music="*res://global/music/music.tscn"
 
 [debug]
 

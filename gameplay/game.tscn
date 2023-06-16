@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://gameplay/game.gd" type="Script" id=1]
 [ext_resource path="res://menu/shop/shop.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameplay/paper/paper.tscn" type="PackedScene" id=3]
 [ext_resource path="res://resources/fonts/rubik.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://menu/multiplier_bar/multiplier_bar.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -24,8 +25,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 2
 
 [node name="Paper" parent="Gameplay" instance=ExtResource( 3 )]
-margin_top = 40.0
-margin_bottom = 40.0
 
 [node name="Scores" type="Label" parent="Gameplay"]
 anchor_left = 0.5
@@ -39,8 +38,11 @@ text = "123"
 align = 1
 valign = 1
 
+[node name="MultiplierBar" parent="Gameplay" instance=ExtResource( 5 )]
+
 [node name="Shop" parent="." instance=ExtResource( 2 )]
 anchor_left = 0.0
 anchor_right = 0.0
 margin_left = 1236.0
 margin_right = 1280.0
+margin_bottom = 1456.0
