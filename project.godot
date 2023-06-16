@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://gameplay/paper/paper.gd"
 }, {
+"base": "Label",
+"class": "PressNumber",
+"language": "GDScript",
+"path": "res://gameplay/press_number/press_number.gd"
+}, {
 "base": "MarginContainer",
 "class": "Shop",
 "language": "GDScript",
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "Game": "",
 "MultiplierBar": "",
 "Paper": "",
+"PressNumber": "",
 "Shop": ""
 }
 
@@ -49,6 +55,7 @@ Global="*res://global/global.gd"
 Background="*res://global/background/background.tscn"
 Data="*res://global/data.gd"
 Music="*res://global/music/music.tscn"
+Events="*res://global/events.gd"
 
 [debug]
 

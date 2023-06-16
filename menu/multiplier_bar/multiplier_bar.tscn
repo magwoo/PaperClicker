@@ -1,8 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://resources/fonts/rubik.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://menu/multiplier_bar/multiplier_bar.gd" type="Script" id=2]
 [ext_resource path="res://menu/multiplier_bar/curve.tres" type="Curve" id=3]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.470588, 0.470588, 0.470588, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.941176, 0.941176, 0.941176, 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -17,10 +28,12 @@ anchor_bottom = 1.0
 margin_left = -209.0
 margin_top = -74.0
 margin_right = 209.0
-margin_bottom = -50.0
+margin_bottom = -58.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
 min_value = 1.0
-max_value = 10.0
-value = 4.0
+max_value = 2.0
+value = 1.35
 percent_visible = false
 script = ExtResource( 2 )
 animation_curve = ExtResource( 3 )
@@ -32,6 +45,7 @@ margin_left = 19.0
 margin_top = -38.0
 margin_right = -345.0
 margin_bottom = -22.0
+custom_colors/font_color = Color( 0.941176, 0.941176, 0.941176, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "X5"
 valign = 2
