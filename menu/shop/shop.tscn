@@ -5,7 +5,7 @@
 [node name="Shop" type="MarginContainer"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -360.0
+margin_left = -480.0
 margin_bottom = 1024.0
 custom_constants/margin_right = 16
 custom_constants/margin_top = 16
@@ -17,14 +17,14 @@ script = ExtResource( 1 )
 self_modulate = Color( 1, 1, 1, 0.8 )
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 344.0
-margin_bottom = 1008.0
+margin_right = 464.0
+margin_bottom = 1440.0
 mouse_filter = 2
 size_flags_vertical = 2
 custom_constants/separation = 16
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-margin_right = 328.0
+margin_right = 448.0
 margin_bottom = 128.0
 rect_min_size = Vector2( 0, 128 )
 focus_mode = 0
@@ -32,7 +32,7 @@ enabled_focus_mode = 0
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 margin_top = 144.0
-margin_right = 328.0
+margin_right = 448.0
 margin_bottom = 272.0
 rect_min_size = Vector2( 0, 128 )
 focus_mode = 0
@@ -40,7 +40,7 @@ enabled_focus_mode = 0
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 margin_top = 288.0
-margin_right = 328.0
+margin_right = 448.0
 margin_bottom = 416.0
 rect_min_size = Vector2( 0, 128 )
 focus_mode = 0
@@ -48,7 +48,7 @@ enabled_focus_mode = 0
 
 [node name="Button4" type="Button" parent="VBoxContainer"]
 margin_top = 432.0
-margin_right = 328.0
+margin_right = 448.0
 margin_bottom = 560.0
 rect_min_size = Vector2( 0, 128 )
 focus_mode = 0
@@ -56,7 +56,7 @@ enabled_focus_mode = 0
 
 [node name="Button5" type="Button" parent="VBoxContainer"]
 margin_top = 576.0
-margin_right = 328.0
+margin_right = 448.0
 margin_bottom = 704.0
 rect_min_size = Vector2( 0, 128 )
 focus_mode = 0
@@ -64,7 +64,7 @@ enabled_focus_mode = 0
 
 [node name="Button6" type="Button" parent="VBoxContainer"]
 margin_top = 720.0
-margin_right = 328.0
+margin_right = 448.0
 margin_bottom = 848.0
 rect_min_size = Vector2( 0, 128 )
 focus_mode = 0
@@ -72,8 +72,32 @@ enabled_focus_mode = 0
 
 [node name="Button7" type="Button" parent="VBoxContainer"]
 margin_top = 864.0
-margin_right = 328.0
+margin_right = 448.0
 margin_bottom = 992.0
+rect_min_size = Vector2( 0, 128 )
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="Button8" type="Button" parent="VBoxContainer"]
+margin_top = 1008.0
+margin_right = 448.0
+margin_bottom = 1136.0
+rect_min_size = Vector2( 0, 128 )
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="Button9" type="Button" parent="VBoxContainer"]
+margin_top = 1152.0
+margin_right = 448.0
+margin_bottom = 1280.0
+rect_min_size = Vector2( 0, 128 )
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="Button10" type="Button" parent="VBoxContainer"]
+margin_top = 1296.0
+margin_right = 448.0
+margin_bottom = 1424.0
 rect_min_size = Vector2( 0, 128 )
 focus_mode = 0
 enabled_focus_mode = 0
