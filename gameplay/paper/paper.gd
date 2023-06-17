@@ -36,6 +36,10 @@ func _process(delta: float) -> void:
 	shadow.rotation = paper.rotation / 3.0
 
 
+func _input(event: InputEvent) -> void:
+	if Input.is_key_pressed(KEY_SPACE) && OS.is_debug_build(): press()
+
+
 func press() -> void:
 	tween.interpolate_method(self, '_curve_sprite_scale', 0.0, 1.0, 0.35)
 	Data.add_score(Global.current_multiplier)
