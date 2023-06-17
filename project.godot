@@ -56,6 +56,7 @@ Background="*res://global/background/background.tscn"
 Data="*res://global/data.gd"
 Music="*res://global/music/music.tscn"
 Events="*res://global/events.gd"
+SDK="*res://global/SDK.gd"
 
 [debug]
 
