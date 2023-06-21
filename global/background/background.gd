@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-onready var texture: TextureRect = $Texture
+onready var shader: TextureRect = $Shader
 onready var viewport: Viewport = self.get_viewport()
 
 
@@ -11,5 +11,5 @@ func _ready() -> void:
 
 
 func update_viewport() -> void:
-	texture.rect_size = viewport.size
-	texture.rect_pivot_offset = texture.rect_size / 2.0
+	shader.rect_size = viewport.size
+	shader.rect_pivot_offset = shader.rect_size / 2.0
