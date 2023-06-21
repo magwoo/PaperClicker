@@ -3,12 +3,17 @@ extends Control
 
 
 export var menu_width: float = 256.0
+export var button_packed: PackedScene
+export(Array, Resource) var items
 
 var opened: bool = false
 var tween: Tween = Tween.new()
+var scrolled: int = 0
 
 onready var button_container: VBoxContainer = $MarginContainer/VBoxContainer
 onready var margin_container: MarginContainer = $MarginContainer
+onready var open_player: AudioStreamPlayer = $OpenPlayer
+onready var close_player: AudioStreamPlayer = $ClosePlayer
 onready var viewport: Viewport = self.get_viewport()
 
 
@@ -16,6 +21,10 @@ func _ready() -> void:
 	self.rect_min_size.x = 0.0
 	self.modulate.a = 0.0
 	self.add_child(tween)
+	for item in items:
+		var button: ShopButton = button_packed.instance()
+		button_container.add_child(button)
+		button.setup(item)
 	close()
 
 
@@ -33,6 +42,7 @@ func _input(event: InputEvent) -> void:
 
 func open() -> void:
 	opened = true
+	open_player.play()
 	tween.interpolate_property(
 		self, 'modulate', self.modulate, Color.white, 0.15
 	); tween.interpolate_property(
@@ -46,6 +56,7 @@ func open() -> void:
 
 func close() -> void:
 	opened = false
+	close_player.play()
 	tween.interpolate_property(
 		self, 'modulate', self.modulate, Color.transparent, 0.1
 	); tween.interpolate_property(

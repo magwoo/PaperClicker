@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://menu/shop/shop.gd" type="Script" id=1]
+[ext_resource path="res://menu/shop/open.wav" type="AudioStream" id=2]
 [ext_resource path="res://menu/shop/button/shop_button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://menu/shop/close.wav" type="AudioStream" id=4]
+[ext_resource path="res://menu/shop/items/example_item.tres" type="Resource" id=5]
+[ext_resource path="res://menu/shop/items/shop_item.gd" type="Script" id=6]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 6 )
+name = "example name"
+description = "example description"
+cost = 2
 
 [node name="Shop" type="Control"]
 anchor_left = 1.0
@@ -10,6 +20,8 @@ margin_left = -160.0
 margin_bottom = 1744.0
 rect_min_size = Vector2( 256, 0 )
 script = ExtResource( 1 )
+button_packed = ExtResource( 3 )
+items = [ SubResource( 1 ), ExtResource( 5 ), ExtResource( 5 ) ]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_left = 1.0
@@ -27,33 +39,15 @@ self_modulate = Color( 1, 1, 1, 0.8 )
 margin_left = 48.0
 margin_top = 48.0
 margin_right = 208.0
-margin_bottom = 1264.0
+margin_bottom = 48.0
 mouse_filter = 2
 size_flags_vertical = 2
 custom_constants/separation = 16
 
-[node name="ShopButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="OpenPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -15.0
 
-[node name="ShopButton2" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 176.0
-margin_bottom = 336.0
-
-[node name="ShopButton3" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 352.0
-margin_bottom = 512.0
-
-[node name="ShopButton4" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 528.0
-margin_bottom = 688.0
-
-[node name="ShopButton5" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 704.0
-margin_bottom = 864.0
-
-[node name="ShopButton6" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 880.0
-margin_bottom = 1040.0
-
-[node name="ShopButton7" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 1056.0
-margin_bottom = 1216.0
+[node name="ClosePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.0
