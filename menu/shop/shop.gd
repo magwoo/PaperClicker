@@ -4,7 +4,6 @@ extends Control
 
 export var menu_width: float = 256.0
 export var button_packed: PackedScene
-export(Array, Resource) var items
 
 var opened: bool = false
 var tween: Tween = Tween.new()
@@ -21,10 +20,6 @@ func _ready() -> void:
 	self.rect_min_size.x = 0.0
 	self.modulate.a = 0.0
 	self.add_child(tween)
-	for item in items:
-		var button: ShopButton = button_packed.instance()
-		button_container.add_child(button)
-		button.setup(item)
 	close()
 
 
