@@ -28,8 +28,9 @@ func _ready() -> void:
 	self.rect_pivot_offset = self.rect_size / 2.0
 	info_name.text = self.tr(item_name)
 	info_description.text = self.tr(item_description)
-	info_cost.text = self.tr('#COST') + str(item_cost) + self.tr('#TP')
-	texture.texture = item_icon
+	info_cost.text = '{0}: {1}'.format(
+		[self.tr('#COST'), Global.cut_number(item_cost)]
+	); texture.texture = item_icon
 	texture.rect_pivot_offset = texture.rect_size / 2.0
 	unfocus()
 
@@ -37,7 +38,7 @@ func _ready() -> void:
 func focus() -> void:
 	focus_player.play()
 	tween.interpolate_property(
-		self, 'rect_scale', self.rect_scale, Global.float2vec(1.15),
+		self, 'rect_scale', self.rect_scale, Global.f2v(1.15),
 		0.2, Tween.TRANS_BACK, Tween.EASE_OUT
 	); tween.interpolate_property(
 		info_panel, 'rect_position', info_panel.rect_position,
@@ -66,7 +67,7 @@ func press() -> void:
 		tween.interpolate_method(self, '_sin_rotation', 0.0, PI * 2.0, 0.2)
 	else: Data.add_score(-item_cost)
 	tween.interpolate_property(
-		texture, 'rect_scale', texture.rect_scale, Global.float2vec(0.8),
+		texture, 'rect_scale', texture.rect_scale, Global.f2v(0.8),
 		0.1, Tween.TRANS_BACK, Tween.EASE_OUT
 	); tween.start()
 

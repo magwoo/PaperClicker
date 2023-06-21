@@ -53,7 +53,7 @@ func set_progress(mult: float) -> void:
 
 
 func _curve_label_scale(t: float) -> void:
-	label.rect_scale = Global.float2vec(animation_curve.interpolate(t))
+	label.rect_scale = Global.f2v(animation_curve.interpolate(t))
 	self.rect_scale = Vector2.ONE + (label.rect_scale - Vector2.ONE) / 3.0
 
 

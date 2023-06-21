@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 	var time: float = Global.time
 	paper.position.y = sin(time * move_speed) * move_range
 	paper.rotation = cos(time * rotation_speed) * rotation_range
-	shadow.scale = Vector2.ONE - paper.scale + Global.float2vec(1.075)
+	shadow.scale = Vector2.ONE - paper.scale + Global.f2v(1.075)
 	glow.rotate(glow_rotation_speed * delta)
 	glow.position.y = paper.position.y
 	glow.self_modulate.a = glow_opacity + sin(time * 2.0) * glow_opacity_range
@@ -53,4 +53,4 @@ func press() -> void:
 
 
 func _curve_sprite_scale(t: float) -> void:
-	paper.scale = Global.float2vec(animation_curve.interpolate(t))
+	paper.scale = Global.f2v(animation_curve.interpolate(t))
