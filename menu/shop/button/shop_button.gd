@@ -7,7 +7,7 @@ const PANEL_SEPARATION: float = 16.0
 export var item_name: String = 'example name'
 export var item_icon: StreamTexture = preload('res://icon.png')
 export var item_description: String = 'example description'
-export var item_cost: int = 0
+export var item_cost: int = 5
 
 onready var info_panel: Panel = $InfoPanel
 onready var focus_player: AudioStreamPlayer = $FocusPlayer
@@ -61,6 +61,9 @@ func unfocus() -> void:
 
 
 func press() -> void:
+	if Data.scores < item_cost:
+		tween.interpolate_method(self, '_sin_rotation', 0.0, PI * 2.0, 0.2)
+	else: Data.add_score(-item_cost)
 	tween.interpolate_property(
 		texture, 'rect_scale', texture.rect_scale, Global.float2vec(0.8),
 		0.1, Tween.TRANS_BACK, Tween.EASE_OUT
@@ -72,3 +75,7 @@ func unpress() -> void:
 		texture, 'rect_scale', texture.rect_scale, Vector2.ONE,
 		0.1, Tween.TRANS_BACK, Tween.EASE_OUT
 	); tween.start()
+
+
+func _sin_rotation(t: float) -> void:
+	texture.rect_rotation = sin(t) * 15.0
