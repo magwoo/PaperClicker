@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://menu/shop/shop.gd" type="Script" id=1]
 [ext_resource path="res://menu/shop/open.wav" type="AudioStream" id=2]
 [ext_resource path="res://menu/shop/button/shop_button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://menu/shop/close.wav" type="AudioStream" id=4]
+[ext_resource path="res://menu/shop/icons/boat.svg" type="Texture" id=5]
+[ext_resource path="res://menu/shop/icons/print.svg" type="Texture" id=6]
+[ext_resource path="res://menu/shop/icons/truck.svg" type="Texture" id=7]
+[ext_resource path="res://menu/shop/icons/temple.svg" type="Texture" id=8]
+[ext_resource path="res://menu/shop/icons/portal.svg" type="Texture" id=9]
+[ext_resource path="res://menu/shop/icons/airdrop.svg" type="Texture" id=10]
+[ext_resource path="res://menu/shop/icons/factory.svg" type="Texture" id=11]
+[ext_resource path="res://menu/shop/icons/chosen.svg" type="Texture" id=12]
+[ext_resource path="res://menu/shop/icons/handful.svg" type="Texture" id=13]
+[ext_resource path="res://menu/shop/icons/bundle.svg" type="Texture" id=14]
+[ext_resource path="res://menu/shop/icons/box.svg" type="Texture" id=15]
 
 [node name="Shop" type="Control"]
 anchor_left = 1.0
@@ -30,20 +41,78 @@ self_modulate = Color( 1, 1, 1, 0.8 )
 margin_left = 48.0
 margin_top = 48.0
 margin_right = 208.0
-margin_bottom = 560.0
+margin_bottom = 1968.0
 mouse_filter = 2
 size_flags_vertical = 2
 custom_constants/separation = 16
 
-[node name="ShopButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="ShopButton9" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+item_name = "#PAPER"
+item_icon = ExtResource( 13 )
+item_cost = 30
 
-[node name="ShopButton2" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="ShopButton10" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 176.0
 margin_bottom = 336.0
+item_name = "#BUNDLE"
+item_icon = ExtResource( 14 )
+item_cost = 30
 
-[node name="ShopButton3" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="ShopButton11" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 352.0
 margin_bottom = 512.0
+item_name = "#BOX"
+item_icon = ExtResource( 15 )
+item_cost = 30
+
+[node name="ShopButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 528.0
+margin_bottom = 688.0
+item_name = "#TRUCK"
+item_icon = ExtResource( 7 )
+item_cost = 30
+
+[node name="ShopButton2" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 704.0
+margin_bottom = 864.0
+item_name = "#AIRDROP"
+item_icon = ExtResource( 10 )
+
+[node name="ShopButton3" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 880.0
+margin_bottom = 1040.0
+item_name = "#PRINTER"
+item_icon = ExtResource( 6 )
+
+[node name="ShopButton4" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 1056.0
+margin_bottom = 1216.0
+item_name = "#BOAT"
+item_icon = ExtResource( 5 )
+
+[node name="ShopButton5" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 1232.0
+margin_bottom = 1392.0
+item_name = "#FACTORY"
+item_icon = ExtResource( 11 )
+
+[node name="ShopButton6" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 1408.0
+margin_bottom = 1568.0
+item_name = "#TEMPLE"
+item_icon = ExtResource( 8 )
+
+[node name="ShopButton7" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 1584.0
+margin_bottom = 1744.0
+item_name = "#PORTAL"
+item_icon = ExtResource( 9 )
+
+[node name="ShopButton8" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 1760.0
+margin_bottom = 1920.0
+item_name = "#CULT"
+item_icon = ExtResource( 12 )
 
 [node name="OpenPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

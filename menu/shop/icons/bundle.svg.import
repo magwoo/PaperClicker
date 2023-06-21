@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/airdrop.svg-06f2090f8a8f5973357a55e4fa2cb318.stex"
+path="res://.import/bundle.svg-262343c93d70aec13dc629a2a219b587.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_debug/airdrop.svg"
-dest_files=[ "res://.import/airdrop.svg-06f2090f8a8f5973357a55e4fa2cb318.stex" ]
+source_file="res://menu/shop/icons/bundle.svg"
+dest_files=[ "res://.import/bundle.svg-262343c93d70aec13dc629a2a219b587.stex" ]
 
 [params]
 

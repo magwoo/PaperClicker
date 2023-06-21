@@ -26,9 +26,10 @@ func _ready() -> void:
 	self.connect('button_down', self, 'press')
 	self.connect('button_up', self, 'unpress')
 	self.rect_pivot_offset = self.rect_size / 2.0
-	info_name.text = item_name
-	info_description.text = item_description
-	info_cost.text = 'cost: ' + str(item_cost)
+	info_name.text = self.tr(item_name)
+	info_description.text = self.tr(item_description)
+	info_cost.text = self.tr('#COST') + str(item_cost) + self.tr('#TP')
+	texture.texture = item_icon
 	texture.rect_pivot_offset = texture.rect_size / 2.0
 	unfocus()
 
