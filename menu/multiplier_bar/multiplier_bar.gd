@@ -7,6 +7,8 @@ export(Curve) var animation_curve: Curve
 var tween: Tween = Tween.new()
 
 onready var label: Label = $MultiplierLabel
+onready var up_player: AudioStreamPlayer = $UpPlayer
+onready var down_player: AudioStreamPlayer = $DownPlayer
 onready var viewport: Viewport = self.get_viewport()
 
 
@@ -27,6 +29,8 @@ func up_multiplier() -> void:
 	update_multiplier()
 	tween.interpolate_method(self, '_curve_label_scale', 0.0, 1.0, 0.35)
 	tween.interpolate_method(self, '_curve_label_rotation', 0.0, 1.0, 0.35)
+	up_player.pitch_scale = 0.75 + Global.current_multiplier / 10.0
+	up_player.play()
 	tween.start()
 
 
@@ -34,6 +38,7 @@ func down_multiplier() -> void:
 	update_multiplier()
 	tween.interpolate_method(self, '_curve_label_scale', 0.0, 1.0, 0.35)
 	tween.interpolate_method(self, '_curve_label_rotation', 1.0, -1.0, 0.35)
+	down_player.play()
 	tween.start()
 
 

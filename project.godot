@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "Shop",
 "language": "GDScript",
 "path": "res://menu/shop/shop.gd"
+}, {
+"base": "Button",
+"class": "ShopButton",
+"language": "GDScript",
+"path": "res://menu/shop/button/shop_button.gd"
 } ]
 _global_script_class_icons={
 "Game": "",
 "MultiplierBar": "",
 "Paper": "",
 "PressNumber": "",
-"Shop": ""
+"Shop": "",
+"ShopButton": ""
 }
 
 [application]

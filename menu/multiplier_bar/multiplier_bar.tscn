@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://resources/fonts/rubik.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://menu/multiplier_bar/multiplier_bar.gd" type="Script" id=2]
 [ext_resource path="res://menu/multiplier_bar/curve.tres" type="Curve" id=3]
+[ext_resource path="res://menu/multiplier_bar/ding.wav" type="AudioStream" id=4]
+[ext_resource path="res://menu/multiplier_bar/ding2.wav" type="AudioStream" id=5]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.470588, 0.470588, 0.470588, 1 )
@@ -49,3 +51,9 @@ custom_colors/font_color = Color( 0.941176, 0.941176, 0.941176, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "X5"
 valign = 2
+
+[node name="UpPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="DownPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
