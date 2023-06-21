@@ -16,7 +16,10 @@ onready var tween: Tween = $Tween
 func _ready() -> void:
 	self.connect('mouse_entered', self, 'focus')
 	self.connect('mouse_exited', self, 'unfocus')
+	self.connect('button_down', self, 'press')
+	self.connect('button_up', self, 'unpress')
 	self.rect_pivot_offset = self.rect_size / 2.0
+	texture.rect_pivot_offset = texture.rect_size / 2.0
 	unfocus()
 
 
@@ -50,4 +53,18 @@ func unfocus() -> void:
 		0.3, Tween.TRANS_BACK, Tween.EASE_OUT
 	); tween.interpolate_property(
 		info_panel, 'modulate', info_panel.modulate, Color.transparent, 0.1
+	); tween.start()
+
+
+func press() -> void:
+	tween.interpolate_property(
+		texture, 'rect_scale', texture.rect_scale, Global.float2vec(0.8),
+		0.1, Tween.TRANS_BACK, Tween.EASE_OUT
+	); tween.start()
+
+
+func unpress() -> void:
+	tween.interpolate_property(
+		texture, 'rect_scale', texture.rect_scale, Vector2.ONE,
+		0.1, Tween.TRANS_BACK, Tween.EASE_OUT
 	); tween.start()
