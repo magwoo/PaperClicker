@@ -4,11 +4,14 @@ extends Node
 signal scores_changed(scores)
 signal score_added(scores)
 
+const ITEMS_COUNT: int = 12
+
 var scores: int = 0 setget set_scores, get_scores
+var open_items: Array = []
 
 
 func _ready() -> void:
-	pass
+	for i in ITEMS_COUNT: open_items.append(0)
 
 
 func add_score(value: int = 1) -> void:
