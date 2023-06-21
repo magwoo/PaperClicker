@@ -3,11 +3,9 @@ extends Control
 
 
 export var menu_width: float = 256.0
-export var button_packed: PackedScene
 
 var opened: bool = false
 var tween: Tween = Tween.new()
-var scrolled: int = 0
 
 onready var button_container: VBoxContainer = $MarginContainer/VBoxContainer
 onready var margin_container: MarginContainer = $MarginContainer
