@@ -70,6 +70,7 @@ margin_top = 176.0
 margin_bottom = 336.0
 item_name = "#PAPER"
 item_icon = ExtResource( 13 )
+item_id = 1
 item_cost = 30
 
 [node name="Bundle" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -77,7 +78,7 @@ margin_top = 352.0
 margin_bottom = 512.0
 item_name = "#BUNDLE"
 item_icon = ExtResource( 14 )
-item_id = 1
+item_id = 2
 item_cost = 120
 
 [node name="Box" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -85,7 +86,7 @@ margin_top = 528.0
 margin_bottom = 688.0
 item_name = "#BOX"
 item_icon = ExtResource( 15 )
-item_id = 2
+item_id = 3
 item_cost = 540
 
 [node name="Truck" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -93,7 +94,7 @@ margin_top = 704.0
 margin_bottom = 864.0
 item_name = "#TRUCK"
 item_icon = ExtResource( 7 )
-item_id = 3
+item_id = 4
 item_cost = 1600
 
 [node name="Airdrop" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -101,7 +102,7 @@ margin_top = 880.0
 margin_bottom = 1040.0
 item_name = "#AIRDROP"
 item_icon = ExtResource( 10 )
-item_id = 4
+item_id = 5
 item_cost = 10400
 
 [node name="Printer" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -109,7 +110,7 @@ margin_top = 1056.0
 margin_bottom = 1216.0
 item_name = "#PRINTER"
 item_icon = ExtResource( 6 )
-item_id = 5
+item_id = 6
 item_cost = 50000
 
 [node name="Boat" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -117,7 +118,7 @@ margin_top = 1232.0
 margin_bottom = 1392.0
 item_name = "#BOAT"
 item_icon = ExtResource( 5 )
-item_id = 6
+item_id = 7
 item_cost = 320000
 
 [node name="Factory" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -125,7 +126,7 @@ margin_top = 1408.0
 margin_bottom = 1568.0
 item_name = "#FACTORY"
 item_icon = ExtResource( 11 )
-item_id = 7
+item_id = 8
 item_cost = 1200000
 
 [node name="Temple" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -133,7 +134,7 @@ margin_top = 1584.0
 margin_bottom = 1744.0
 item_name = "#TEMPLE"
 item_icon = ExtResource( 8 )
-item_id = 8
+item_id = 9
 item_cost = 7400000
 
 [node name="Portal" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -141,7 +142,7 @@ margin_top = 1760.0
 margin_bottom = 1920.0
 item_name = "#PORTAL"
 item_icon = ExtResource( 9 )
-item_id = 9
+item_id = 10
 item_cost = 180000000
 
 [node name="Cult" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -149,7 +150,7 @@ margin_top = 1936.0
 margin_bottom = 2096.0
 item_name = "#CULT"
 item_icon = ExtResource( 12 )
-item_id = 10
+item_id = 11
 item_cost = 1000000000
 
 [node name="OpenPlayer" type="AudioStreamPlayer" parent="."]
