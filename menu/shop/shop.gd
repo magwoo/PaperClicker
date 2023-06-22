@@ -17,7 +17,6 @@ onready var viewport: Viewport = self.get_viewport()
 func _ready() -> void:
 	self.rect_min_size.x = 0.0
 	self.modulate.a = 0.0
-	assert(Data.ITEMS_COUNT == button_container.get_child_count(), 'Update const!')
 	self.add_child(tween)
 	close()
 
