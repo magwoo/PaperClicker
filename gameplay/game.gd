@@ -49,7 +49,7 @@ func score_added(scores: int) -> void:
 
 
 func update_scores(scores: int = -1) -> void:
-	scores_label.text = str(scores) if scores > -1 else str(Data.get_scores())
+	scores_label.text = str(scores) if scores > -1 else str(Data.scores)
 
 
 func update_viewport() -> void:

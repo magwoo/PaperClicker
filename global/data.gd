@@ -10,12 +10,8 @@ var paper_per_click: int = 1
 var last_item: int = 0
 
 
-func _init() -> void:
-	SDK.player.connect('player_ready', self, 'load_data')
-
-
 func _ready() -> void:
-	pass
+	SDK.player.connect('player_ready', self, 'load_data')
 
 
 func load_data() -> void:
