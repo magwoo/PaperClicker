@@ -22,5 +22,5 @@ func update_text() -> void:
 
 func get_cost() -> int:
 	var cost: float = 100.0
-	cost = pow(cost, 1.0 + (Data.items[self.item_id] - 1.0) / 10.0)
+	cost = pow(cost, 1.0 + (Data.items[self.item_id] - 1.0) / 5.0)
 	return int(cost)

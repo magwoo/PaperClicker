@@ -2,6 +2,8 @@ class_name Shop
 extends Control
 
 
+const SENSETIVITY: float = 15.0
+
 export var menu_width: float = 256.0
 
 var opened: bool = false
@@ -25,13 +27,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if _is_mouse_open(menu_width / 2.0) && !opened: open()
 	if !_is_mouse_open(menu_width * 1.5) && opened: close()
+	var mouse_pos: Vector2 = self.get_global_mouse_position()
+	if mouse_pos.y < 128.0: self.margin_top += SENSETIVITY
+	if mouse_pos.y > viewport.size.y - 128.0: self.margin_top -= SENSETIVITY
+	var bottom_line: float = -button_container.rect_size.y + viewport.size.y / 1.5
+	self.margin_top = clamp(self.margin_top, bottom_line, 0.0)
 
 
 func _input(event: InputEvent) -> void:
-	if !event is InputEventPanGesture || !opened: return
-	self.margin_top -= event.delta.y * 25.0
-	var bottom_line: float = -button_container.rect_size.y + viewport.size.y / 1.5
-	self.margin_top = clamp(self.margin_top, bottom_line, 0.0)
+	self.margin_top += Input.get_axis('mouse_down', 'mouse_up') * 25.0
 
 
 func open() -> void:
