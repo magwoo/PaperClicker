@@ -120,7 +120,7 @@ func unpress() -> void:
 func update_cost() -> void:
 	info_cost.text = '{0}: {1}'.format(
 		[self.tr('#COST'), Global.cut_number(get_cost())]
-	);
+	); count_text.text = 'x%s' % Global.cut_number(Data.items[item_id])
 
 
 func get_cost() -> int:

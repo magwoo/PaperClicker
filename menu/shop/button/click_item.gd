@@ -17,6 +17,7 @@ func press() -> void:
 
 func update_text() -> void:
 	points.text = '+{0}'.format([Data.items[self.item_id]])
+	self.info_tpps.text = '+{0} {1}'.format([Data.items[self.item_id], self.tr('#PPC')])
 
 
 func get_cost() -> int:
