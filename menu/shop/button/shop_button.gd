@@ -4,6 +4,8 @@ extends Button
 
 const PANEL_SEPARATION: float = 16.0
 const LOCKED_ICON: StreamTexture = preload('res://menu/shop/icons/locked.svg')
+const GREEN_COLOR: Color = Color(0.639216, 1, 0.560784)
+const RED_COLOR: Color = Color(1, 0.560784, 0.560784)
 
 export var item_name: String = 'example name'
 export var item_icon: StreamTexture = preload('res://icon.png')
@@ -33,12 +35,18 @@ func _ready() -> void:
 	self.connect('button_up', self, 'unpress')
 	self.rect_pivot_offset = self.rect_size / 2.0
 	info_name.text = self.tr(item_name)
-	info_tpps.text = '+{0} {1}'.format([paper_per_second, self.tr('#PPS')])
+	info_tpps.text = '+{0} {1}'.format([Global.cut_number(paper_per_second), self.tr('#PPS')])
 	info_description.text = self.tr(item_description)
 	texture.texture = item_icon
 	texture.rect_pivot_offset = texture.rect_size / 2.0
 	update_cost()
 	unfocus()
+
+
+func _physics_process(delta: float) -> void:
+	var cost: int = get_cost()
+	if Data.scores < cost: info_cost.self_modulate = RED_COLOR
+	else: info_cost.self_modulate = GREEN_COLOR
 
 
 func focus() -> void:
