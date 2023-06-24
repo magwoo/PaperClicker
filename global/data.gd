@@ -23,6 +23,10 @@ func _ready() -> void:
 	autosave_timer.start(AUTOSAVE_TIME)
 
 
+func _exit_tree() -> void:
+	sync_data(true)
+
+
 func load_data() -> void:
 	scores = SDK.player.get_data('scores', scores)
 	paper_per_second = SDK.player.get_data('paper_per_second', paper_per_second)
@@ -34,12 +38,12 @@ func wait_sync() -> void:
 	autosave_timer.start(1.0)
 
 
-func sync_data() -> void:
+func sync_data(is_force: bool = false) -> void:
 	SDK.player.set_data('paper_per_second', paper_per_second)
 	SDK.player.set_data('paper_per_click', paper_per_click)
 	SDK.player.set_data('items', items, false, true)
 	SDK.player.set_data('scores', scores)
-	autosave_timer.start(AUTOSAVE_TIME)
+	if !is_force: autosave_timer.start(AUTOSAVE_TIME)
 	SDK.player.sync_data()
 
 
