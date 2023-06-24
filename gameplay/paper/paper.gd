@@ -41,11 +41,12 @@ func _input(event: InputEvent) -> void:
 
 
 func press() -> void:
+	var scores: int = Global.current_multiplier * Data.paper_per_click
 	tween.interpolate_method(self, '_curve_sprite_scale', 0.0, 1.0, 0.35)
-	Data.add_score(Global.current_multiplier)
+	Data.add_score(scores)
 	var node: PressNumber = press_number_packed.instance()
 	node.rect_position = get_global_mouse_position()
-	node.text = '+' + str(Global.current_multiplier)
+	node.text = '+%s' % Global.cut_number(scores)
 	Events.emit_signal('spawn_temp_node', node)
 	player_high.play()
 	player_low.play()

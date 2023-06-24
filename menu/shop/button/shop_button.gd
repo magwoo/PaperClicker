@@ -69,7 +69,7 @@ func press() -> void:
 		tween.interpolate_method(self, '_sin_rotation', 0.0, PI * 2.0, 0.2)
 	else:
 		Data.add_score(-item_cost)
-		Data.open_items[item_id] += 1
+		Data.paper_per_second += 1
 	tween.interpolate_property(
 		texture, 'rect_scale', texture.rect_scale, Global.f2v(0.8),
 		0.1, Tween.TRANS_BACK, Tween.EASE_OUT

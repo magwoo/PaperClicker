@@ -5,6 +5,7 @@ signal scores_changed(scores)
 signal score_added(scores)
 
 var scores: int = 0 setget set_scores
+var click_level: int = 1
 var paper_per_second: int = 0
 var paper_per_click: int = 1
 var last_item: int = 0
@@ -16,6 +17,7 @@ func _ready() -> void:
 
 func load_data() -> void:
 	scores = SDK.player.get_data('scores', scores)
+	click_level = SDK.player.get_data('click_level', click_level)
 	paper_per_second = SDK.player.get_data('paper_per_second', paper_per_second)
 	paper_per_click = SDK.player.get_data('paper_per_click', paper_per_click)
 	last_item = SDK.player.get_data('last_item', last_item)
@@ -24,6 +26,7 @@ func load_data() -> void:
 func sync_data() -> void:
 	SDK.player.set_data('paper_per_second', paper_per_second)
 	SDK.player.set_data('paper_per_click', paper_per_click)
+	SDK.player.set_data('click_level', click_level)
 	SDK.player.set_data('last_item', last_item)
 	SDK.player.set_data('scores', scores)
 	SDK.player.sync_data()

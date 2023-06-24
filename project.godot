@@ -77,7 +77,7 @@ window/size/test_height=900
 window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
-window/size/always_on_top.editor=true
+window/size/always_on_top.editor=false
 
 [gui]
 

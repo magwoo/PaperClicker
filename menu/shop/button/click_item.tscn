@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://menu/shop/button/shop_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/fonts/rubik.ttf" type="DynamicFontData" id=2]
@@ -8,8 +8,19 @@
 size = 48
 font_data = ExtResource( 2 )
 
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 0.666667, 0.376471, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
 [node name="ClickItem" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+item_icon = null
+
+[node name="Icon" parent="." index="2"]
+texture = null
 
 [node name="Points" type="Label" parent="Icon" index="0"]
 anchor_right = 1.0
@@ -18,3 +29,11 @@ custom_fonts/font = SubResource( 1 )
 text = "+1"
 align = 1
 valign = 1
+
+[node name="Panel" type="Panel" parent="Icon" index="1"]
+self_modulate = Color( 1, 1, 1, 0.2 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 2 )

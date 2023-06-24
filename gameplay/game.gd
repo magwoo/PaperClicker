@@ -16,7 +16,7 @@ func _ready() -> void:
 	viewport.connect('size_changed', self, 'update_viewport')
 	Data.connect('scores_changed', self, 'update_scores')
 	Data.connect('score_added', self, 'score_added')
-	update_scores()
+	update_scores(Data.scores)
 
 
 func _process(delta: float) -> void:
@@ -49,7 +49,7 @@ func score_added(scores: int) -> void:
 
 
 func update_scores(scores: int = -1) -> void:
-	scores_label.text = str(scores) if scores > -1 else str(Data.scores)
+	scores_label.text = Global.cut_number(scores)
 
 
 func update_viewport() -> void:
