@@ -10,7 +10,7 @@ onready var shadow: Label = $Shadow
 
 
 func _ready() -> void:
-	velocity = Vector2(rand_range(-4.0, 4.0), rand_range(-3.0, -10.0))
+	velocity = Vector2(rand_range(-4.0, 4.0), rand_range(-3.0, -5.0))
 	shadow.text = self.text
 
 

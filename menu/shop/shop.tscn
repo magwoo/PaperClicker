@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://menu/shop/shop.gd" type="Script" id=1]
 [ext_resource path="res://menu/shop/open.wav" type="AudioStream" id=2]
@@ -16,7 +16,6 @@
 [ext_resource path="res://menu/shop/icons/bundle.svg" type="Texture" id=14]
 [ext_resource path="res://menu/shop/icons/box.svg" type="Texture" id=15]
 [ext_resource path="res://menu/shop/button/click_item.tscn" type="PackedScene" id=16]
-[ext_resource path="res://icon.png" type="Texture" id=17]
 
 [node name="Shop" type="Control"]
 anchor_left = 1.0
@@ -48,13 +47,14 @@ size_flags_vertical = 2
 custom_constants/separation = 16
 
 [node name="ClickItem" parent="MarginContainer/VBoxContainer" instance=ExtResource( 16 )]
-item_icon = ExtResource( 17 )
+press_number_packed = null
 
 [node name="Paper" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 176.0
 margin_bottom = 336.0
 item_name = "#PAPER"
 item_icon = ExtResource( 13 )
+paper_per_second = 1
 item_id = 1
 item_cost = 30
 
@@ -63,6 +63,7 @@ margin_top = 352.0
 margin_bottom = 512.0
 item_name = "#BUNDLE"
 item_icon = ExtResource( 14 )
+paper_per_second = 4
 item_id = 2
 item_cost = 120
 
@@ -71,6 +72,7 @@ margin_top = 528.0
 margin_bottom = 688.0
 item_name = "#BOX"
 item_icon = ExtResource( 15 )
+paper_per_second = 12
 item_id = 3
 item_cost = 540
 
@@ -79,6 +81,7 @@ margin_top = 704.0
 margin_bottom = 864.0
 item_name = "#TRUCK"
 item_icon = ExtResource( 7 )
+paper_per_second = 40
 item_id = 4
 item_cost = 1600
 
@@ -87,6 +90,7 @@ margin_top = 880.0
 margin_bottom = 1040.0
 item_name = "#AIRDROP"
 item_icon = ExtResource( 10 )
+paper_per_second = 100
 item_id = 5
 item_cost = 10400
 
@@ -95,6 +99,7 @@ margin_top = 1056.0
 margin_bottom = 1216.0
 item_name = "#PRINTER"
 item_icon = ExtResource( 6 )
+paper_per_second = 340
 item_id = 6
 item_cost = 50000
 
@@ -103,6 +108,7 @@ margin_top = 1232.0
 margin_bottom = 1392.0
 item_name = "#BOAT"
 item_icon = ExtResource( 5 )
+paper_per_second = 1200
 item_id = 7
 item_cost = 320000
 
@@ -111,6 +117,7 @@ margin_top = 1408.0
 margin_bottom = 1568.0
 item_name = "#FACTORY"
 item_icon = ExtResource( 11 )
+paper_per_second = 4500
 item_id = 8
 item_cost = 1200000
 
@@ -119,6 +126,7 @@ margin_top = 1584.0
 margin_bottom = 1744.0
 item_name = "#TEMPLE"
 item_icon = ExtResource( 8 )
+paper_per_second = 10400
 item_id = 9
 item_cost = 7400000
 
@@ -127,6 +135,7 @@ margin_top = 1760.0
 margin_bottom = 1920.0
 item_name = "#PORTAL"
 item_icon = ExtResource( 9 )
+paper_per_second = 46000
 item_id = 10
 item_cost = 180000000
 
@@ -135,8 +144,9 @@ margin_top = 1936.0
 margin_bottom = 2096.0
 item_name = "#CULT"
 item_icon = ExtResource( 12 )
+paper_per_second = 260000
 item_id = 11
-item_cost = 1000000000
+item_cost = 1200000000
 
 [node name="OpenPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

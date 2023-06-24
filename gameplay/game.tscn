@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://gameplay/game.gd" type="Script" id=1]
 [ext_resource path="res://menu/shop/shop.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://resources/fonts/rubik.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://menu/multiplier_bar/multiplier_bar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gameplay/scripts/temp_node.gd" type="Script" id=6]
+[ext_resource path="res://gameplay/press_number/press_number.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -16,6 +17,7 @@ font_data = ExtResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+press_number_packed = ExtResource( 7 )
 
 [node name="Gameplay" type="Control" parent="."]
 margin_right = 1020.0

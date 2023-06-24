@@ -2,8 +2,11 @@ class_name Game
 extends HBoxContainer
 
 
+export var press_number_packed: PackedScene
+
 var time: float = 0.0
 var multiplier: float = 1.0
+var second_timer: Timer = Timer.new()
 
 onready var scores_label: Label = $Gameplay/Scores
 onready var gameplay_container: Control = $Gameplay
@@ -16,6 +19,9 @@ func _ready() -> void:
 	viewport.connect('size_changed', self, 'update_viewport')
 	Data.connect('scores_changed', self, 'update_scores')
 	Data.connect('score_added', self, 'score_added')
+	second_timer.connect('timeout', self, '_second')
+	self.add_child(second_timer)
+	second_timer.start(1.0)
 	update_scores(Data.scores)
 
 
@@ -42,9 +48,9 @@ func _process(delta: float) -> void:
 	time += delta
 
 
-func score_added(scores: int) -> void:
+func score_added(scores: int, is_click: bool = true) -> void:
 	scores_label.rect_scale += Vector2(0.4, 0.4)
-	multiplier += 0.075
+	if is_click: multiplier += 0.075
 	time += rand_range(0.25, 0.5)
 
 
@@ -54,3 +60,13 @@ func update_scores(scores: int = -1) -> void:
 
 func update_viewport() -> void:
 	gameplay_container.rect_min_size.y = viewport.size.y
+
+
+func _second() -> void:
+	if Data.paper_per_second == 0: return
+	Data.add_score(Data.paper_per_second, false)
+	score_added(0, false)
+	var node: PressNumber = press_number_packed.instance()
+	node.rect_position = Vector2(viewport.size.x / 2.0 + 96.0, 64.0)
+	node.text = '+%s' % Global.cut_number(Data.paper_per_second)
+	Events.emit_signal('spawn_temp_node', node)
