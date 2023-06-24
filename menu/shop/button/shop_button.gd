@@ -13,7 +13,8 @@ export var item_description: String = 'example description'
 export var paper_per_second: int = 0
 export var item_id: int = 0
 export var item_cost: int = 5
-export var press_number_packed: PackedScene
+
+var press_number_packed: PackedScene = preload('res://gameplay/press_number/press_number.tscn')
 
 onready var info_panel: Panel = $InfoPanel
 onready var focus_player: AudioStreamPlayer = $FocusPlayer
@@ -24,6 +25,7 @@ onready var info_cost: Label = $InfoPanel/Cost
 onready var info_tpps: Label = $InfoPanel/TPPS
 
 onready var texture: TextureRect = $Icon
+onready var count_text: Label = $Count
 onready var viewport: Viewport = self.get_viewport()
 onready var tween: Tween = $Tween
 
@@ -37,6 +39,7 @@ func _ready() -> void:
 	info_name.text = self.tr(item_name)
 	info_tpps.text = '+{0} {1}'.format([Global.cut_number(paper_per_second), self.tr('#PPS')])
 	info_description.text = self.tr(item_description)
+	count_text.text = 'x%s' % Global.cut_number(Data.items[item_id])
 	texture.texture = item_icon
 	texture.rect_pivot_offset = texture.rect_size / 2.0
 	update_cost()
@@ -60,6 +63,12 @@ func focus() -> void:
 		0.3, Tween.TRANS_BACK, Tween.EASE_OUT
 	); tween.interpolate_property(
 		info_panel, 'modulate', info_panel.modulate, Color.white, 0.1
+	); tween.interpolate_property(
+		count_text, 'rect_position', count_text.rect_position,
+		Vector2(self.rect_size.x - count_text.rect_size.x / 2.0, self.rect_size.y - count_text.rect_size.y),
+		0.2, Tween.TRANS_BACK, Tween.EASE_OUT
+	); tween.interpolate_property(
+		count_text, 'modulate', count_text.modulate, Color.white, 0.1
 	); tween.start()
 
 
@@ -73,7 +82,13 @@ func unfocus() -> void:
 		0.3, Tween.TRANS_BACK, Tween.EASE_OUT
 	); tween.interpolate_property(
 		info_panel, 'modulate', info_panel.modulate, Color.transparent, 0.1
-	); tween.start()
+	); tween.interpolate_property(
+		count_text, 'rect_position', count_text.rect_position,
+		Vector2(self.rect_size.x, self.rect_size.y - count_text.rect_size.y),
+		0.2, Tween.TRANS_BACK, Tween.EASE_OUT
+	); tween.interpolate_property(
+		count_text, 'modulate', count_text.modulate, Color.transparent, 0.1
+	);  tween.start()
 
 
 func press() -> void:

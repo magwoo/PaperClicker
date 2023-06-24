@@ -4,7 +4,6 @@
 [ext_resource path="res://menu/shop/button/shop_button.gd" type="Script" id=2]
 [ext_resource path="res://menu/shop/button/select.wav" type="AudioStream" id=3]
 [ext_resource path="res://resources/fonts/rubik.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://gameplay/press_number/press_number.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.5 )
@@ -23,6 +22,11 @@ size = 24
 use_filter = true
 font_data = ExtResource( 4 )
 
+[sub_resource type="DynamicFont" id=4]
+size = 24
+use_filter = true
+font_data = ExtResource( 4 )
+
 [node name="ShopButton" type="Button"]
 self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 160.0
@@ -31,7 +35,6 @@ rect_min_size = Vector2( 0, 160 )
 focus_mode = 0
 enabled_focus_mode = 0
 script = ExtResource( 2 )
-press_number_packed = ExtResource( 5 )
 
 [node name="InfoPanel" type="Panel" parent="."]
 anchor_top = 0.5
@@ -98,3 +101,15 @@ expand = true
 [node name="FocusPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -5.0
+
+[node name="Count" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 80.0
+margin_top = 136.0
+margin_right = 70.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 4 )
+text = "x1"
+align = 1
+valign = 1

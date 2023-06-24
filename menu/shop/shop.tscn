@@ -47,7 +47,6 @@ size_flags_vertical = 2
 custom_constants/separation = 16
 
 [node name="ClickItem" parent="MarginContainer/VBoxContainer" instance=ExtResource( 16 )]
-press_number_packed = null
 
 [node name="Paper" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 176.0
