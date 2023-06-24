@@ -21,9 +21,10 @@ script = ExtResource( 1 )
 press_number_packed = ExtResource( 7 )
 
 [node name="Menu" parent="." instance=ExtResource( 8 )]
+margin_right = 360.0
 
 [node name="Gameplay" type="Control" parent="."]
-margin_left = 132.0
+margin_left = 364.0
 margin_right = 1020.0
 margin_bottom = 720.0
 rect_min_size = Vector2( 0, 720 )
