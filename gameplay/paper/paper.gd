@@ -37,7 +37,8 @@ func _process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_key_pressed(KEY_SPACE) && OS.is_debug_build(): press()
+	if Input.is_key_pressed(KEY_TAB) && OS.is_debug_build(): press()
+	if Input.is_action_just_pressed('press') && button.is_hovered(): press()
 
 
 func press() -> void:

@@ -35,6 +35,7 @@ func _ready() -> void:
 	self.connect('mouse_exited', self, 'unfocus')
 	self.connect('button_down', self, 'press')
 	self.connect('button_up', self, 'unpress')
+	Events.connect('update_items', self, 'update_item')
 	self.rect_pivot_offset = self.rect_size / 2.0
 	info_name.text = self.tr(item_name)
 	info_tpps.text = '+{0} {1}'.format([Global.cut_number(paper_per_second), self.tr('#PPS')])
@@ -42,6 +43,7 @@ func _ready() -> void:
 	count_text.text = 'x%s' % Global.cut_number(Data.items[item_id])
 	texture.texture = item_icon
 	texture.rect_pivot_offset = texture.rect_size / 2.0
+	update_item()
 	update_cost()
 	unfocus()
 
@@ -53,6 +55,7 @@ func _physics_process(delta: float) -> void:
 
 
 func focus() -> void:
+	if is_locked(): return
 	focus_player.play()
 	tween.interpolate_property(
 		self, 'rect_scale', self.rect_scale, Global.f2v(1.15),
@@ -102,6 +105,7 @@ func press() -> void:
 		node.text = '-%s' % Global.cut_number(get_cost())
 		Events.emit_signal('spawn_temp_node', node)
 		Data.items[item_id] += 1
+		if Data.items[item_id] == 1: Events.emit_signal('update_items')
 		Data.wait_sync()
 		update_cost()
 	tween.interpolate_property(
@@ -123,10 +127,19 @@ func update_cost() -> void:
 	); count_text.text = 'x%s' % Global.cut_number(Data.items[item_id])
 
 
+func update_item() -> void:
+	if is_locked(): texture.texture = LOCKED_ICON
+	else: texture.texture = item_icon
+
+
+func is_locked() -> bool:
+	return Data.items[max(0, item_id - 1)] == 0
+
+
 func get_cost() -> int:
 	var cost: float = item_id + 1.0
 	cost = pow(cost, 1.0 + 0.1 * Data.items[item_id]) * 10.0
-	cost = pow(cost, 1.0 + 0.3 * item_id)
+	cost = pow(cost, 1.0 + 0.2 * item_id)
 	return int(cost)
 
 
