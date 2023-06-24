@@ -19,6 +19,7 @@ onready var focus_player: AudioStreamPlayer = $FocusPlayer
 onready var info_name: Label = $InfoPanel/Name
 onready var info_description: Label = $InfoPanel/Description
 onready var info_cost: Label = $InfoPanel/Cost
+onready var info_tpps: Label = $InfoPanel/TPPS
 
 onready var texture: TextureRect = $Icon
 onready var viewport: Viewport = self.get_viewport()
@@ -32,6 +33,7 @@ func _ready() -> void:
 	self.connect('button_up', self, 'unpress')
 	self.rect_pivot_offset = self.rect_size / 2.0
 	info_name.text = self.tr(item_name)
+	info_tpps.text = '+{0} {1}'.format([paper_per_second, self.tr('#PPS')])
 	info_description.text = self.tr(item_description)
 	texture.texture = item_icon
 	texture.rect_pivot_offset = texture.rect_size / 2.0
