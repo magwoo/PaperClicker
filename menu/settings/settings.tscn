@@ -20,7 +20,7 @@ func _pressed() -> void:
 
 func update_text() -> void:
 	var status: bool = Data.settings.sounds
-	self.info_label.text = self.tr('#ON') if status else self.tr('#OFF')
+	self.info_label.text = self.tr('#OFF') if status else self.tr('#ON')
 "
 
 [sub_resource type="GDScript" id=2]
@@ -40,7 +40,7 @@ func _pressed() -> void:
 
 func update_text() -> void:
 	var status: bool = Data.settings.music
-	self.info_label.text = self.tr('#ON') if status else self.tr('#OFF')
+	self.info_label.text = self.tr('#OFF') if status else self.tr('#ON')
 "
 
 [sub_resource type="GDScript" id=3]
@@ -54,6 +54,7 @@ func _ready() -> void:
 
 func _pressed() -> void:
 	SDK.player.language = 'ru' if SDK.player.language != 'ru' else 'en'
+	TranslationServer.set_locale(SDK.player.language)
 	Data.wait_sync()
 	update_text()
 
