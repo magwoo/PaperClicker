@@ -5,7 +5,7 @@ extends Button
 var tween: Tween = Tween.new()
 
 onready var info_panel: Panel = $InfoPanel
-onready var info_text: Label = $InfoPanel/Label
+onready var info_label: Label = $InfoPanel/Label
 
 
 func _ready() -> void:

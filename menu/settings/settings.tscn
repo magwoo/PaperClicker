@@ -1,7 +1,75 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menu/settings/settings.gd" type="Script" id=1]
 [ext_resource path="res://menu/settings/settings_button.tscn" type="PackedScene" id=4]
+
+[sub_resource type="GDScript" id=1]
+resource_name = "sounds_settings"
+script/source = "extends SettingsButton
+
+
+func _ready() -> void:
+	update_text()
+
+
+func _pressed() -> void:
+	Data.settings.sounds = false if Data.settings.sounds else true
+	Data.wait_sync()
+	update_text()
+
+
+func update_text() -> void:
+	var status: bool = Data.settings.sounds
+	self.info_label.text = self.tr('#ON') if status else self.tr('#OFF')
+"
+
+[sub_resource type="GDScript" id=2]
+resource_name = "music_settings"
+script/source = "extends SettingsButton
+
+
+func _ready() -> void:
+	update_text()
+
+
+func _pressed() -> void:
+	Data.settings.music = false if Data.settings.music else true
+	Data.wait_sync()
+	update_text()
+
+
+func update_text() -> void:
+	var status: bool = Data.settings.music
+	self.info_label.text = self.tr('#ON') if status else self.tr('#OFF')
+"
+
+[sub_resource type="GDScript" id=3]
+resource_name = "lang_settings"
+script/source = "extends SettingsButton
+
+
+func _ready() -> void:
+	update_text()
+
+
+func _pressed() -> void:
+	SDK.player.language = 'ru' if SDK.player.language != 'ru' else 'en'
+	Data.wait_sync()
+	update_text()
+
+
+func update_text() -> void:
+	self.info_label.text = SDK.player.language
+"
+
+[sub_resource type="GDScript" id=4]
+resource_name = "leaderboard_settings"
+script/source = "extends SettingsButton
+
+
+func _pressed() -> void:
+	SDK.leaderboard.open_by_var('scores')
+"
 
 [node name="Settings" type="Control"]
 margin_right = 128.0
@@ -25,18 +93,22 @@ margin_bottom = 688.0
 custom_constants/separation = 32
 
 [node name="Sounds" parent="MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
+script = SubResource( 1 )
 
 [node name="Music" parent="MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 96.0
 margin_bottom = 160.0
 text = "#MUSIC"
+script = SubResource( 2 )
 
 [node name="Lang" parent="MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 192.0
 margin_bottom = 256.0
 text = "#LANG"
+script = SubResource( 3 )
 
 [node name="Leaderboard" parent="MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 288.0
 margin_bottom = 352.0
 text = "#LEADERBOARD"
+script = SubResource( 4 )

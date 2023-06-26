@@ -11,6 +11,7 @@ var scores: int = 0 setget set_scores
 var paper_per_second: int = 0
 var paper_per_click: int = 1
 var autosave_timer: Timer = Timer.new()
+var settings: Settings = Settings.new()
 var items: Array = [1]
 
 
@@ -32,6 +33,7 @@ func load_data() -> void:
 	paper_per_second = SDK.player.get_data('paper_per_second', paper_per_second)
 	paper_per_click = SDK.player.get_data('paper_per_click', paper_per_click)
 	items = SDK.player.get_data('items', items, true)
+	settings = str2var(SDK.player.get_data('settings', var2str(settings)))
 
 
 func wait_sync() -> void:
@@ -41,6 +43,7 @@ func wait_sync() -> void:
 func sync_data(is_force: bool = false) -> void:
 	SDK.player.set_data('paper_per_second', paper_per_second)
 	SDK.player.set_data('paper_per_click', paper_per_click)
+	SDK.player.set_data('settings', var2str(settings))
 	SDK.player.set_data('items', items, false, true)
 	SDK.player.set_data('scores', scores)
 	if !is_force: autosave_timer.start(AUTOSAVE_TIME)
