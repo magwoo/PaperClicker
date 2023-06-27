@@ -150,7 +150,9 @@ item_cost = 1200000000
 [node name="OpenPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = -15.0
+bus = "Sounds"
 
 [node name="ClosePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -15.0
+bus = "Sounds"

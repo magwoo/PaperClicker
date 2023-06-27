@@ -54,6 +54,8 @@ valign = 2
 
 [node name="UpPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+bus = "Sounds"
 
 [node name="DownPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+bus = "Sounds"

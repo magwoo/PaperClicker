@@ -50,3 +50,4 @@ valign = 1
 [node name="FocusPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -5.0
+bus = "Sounds"
