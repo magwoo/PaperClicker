@@ -58,7 +58,7 @@ func _pressed() -> void:
 	SDK.player.language = 'ru' if SDK.player.language != 'ru' else 'en'
 	TranslationServer.set_locale(SDK.player.language)
 	Data.wait_sync()
-	update_text()
+	self.get_tree().reload_current_scene()
 
 
 func update_text() -> void:

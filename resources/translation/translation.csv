@@ -21,3 +21,15 @@ id;ru;en
 #ON;ВКЛ;ON
 #OFF;ВЫКЛ;OFF
 #MUSIC;МУЗЫКА;MUSIC
+#CLICK_DESC;БУМАГА ЗА НАЖАТИЯ;PAPER FOR PRESSING
+#PAPER_DESC;ЦЕЛЫЙ РУЛОН БУМАГИ;A WHOLE ROLL OF PAPER
+#BUNDLE_DESC;НАБОР РУЛОНОВ;BUNDLE OF ROLLS
+#BOX_DESC;ПОЛНАЯ КОРОБКА БУМАГИ;A FULL BOX OF PAPER
+#TRUCK_DESC;БУМАГА УЖЕ ЕДЕТ!;THE PAPER IS ON ITS WAY!
+#AIRDROP_DESC;БУМАГА С НЕБА!;PAPER FROM THE SKY!
+#PRINTER_DESC;НАПЕЧАТАЙ БУМАГУ ДОМА;PRINT THE PAPER AT HOME
+#BOAT_DESC;БАРЖА ПОЛНАЯ БУМАГИ;A BARGE FULL OF PAPER
+#FACTORY_DESC;ОТКРОЙ ПРОИЗВОДСТВО БУМАГИ!;OPEN PAPER PRODUCTION!
+#TEMPLE_DESC;ПОРАДУЙ БУМАГУ!;PLEASE THE PAPER!
+#PORTAL_DESC;БУМАГА ИЗ ДРУГОГО ИЗМЕРЕНИЯ;PAPER FROM ANOTHER DIMENSION
+#CULT_DESC;ПРИКЛОНИСЬ ТУАЛЕТНОЙ БУМАГЕ!!;BOW DOWN TO TOILET PAPER!!
