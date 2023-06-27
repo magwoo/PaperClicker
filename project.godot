@@ -63,7 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Toilet Clicker"
-run/main_scene="res://gameplay/game.tscn"
+run/main_scene="res://global/load_scene/load_scene.tscn"
 boot_splash/show_image=false
 config/icon="res://icon.png"
 
