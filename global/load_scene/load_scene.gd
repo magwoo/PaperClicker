@@ -34,7 +34,9 @@ func animate() -> void:
 
 
 func complete() -> void:
-	yield(self.get_tree().create_timer(1.5), 'timeout')
+	while !SDK.player.is_ready():
+		yield(get_tree().create_timer(0.05), 'timeout')
+	yield(get_tree().create_timer(0.5), 'timeout')
 	Music.play()
 	self.get_tree().change_scene('res://gameplay/game.tscn')
 

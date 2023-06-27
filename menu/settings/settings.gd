@@ -15,12 +15,14 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if get_global_mouse_position().x < 128.0 && !opened: open()
 	if get_global_mouse_position().x > 420.0 && opened: close()
+	if get_global_mouse_position().y > 420.0: return
+	if get_global_mouse_position().x < 128.0 && !opened: open()
 
 
 func open() -> void:
 	opened = true
+	self.show()
 	open_player.play()
 	tween.interpolate_property(
 		self, 'rect_min_size', self.rect_min_size, Vector2(256.0, 0.0),

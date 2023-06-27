@@ -40,6 +40,7 @@ func _input(event: InputEvent) -> void:
 
 func open() -> void:
 	opened = true
+	self.show()
 	open_player.play()
 	tween.interpolate_property(
 		self, 'modulate', self.modulate, Color.white, 0.15
