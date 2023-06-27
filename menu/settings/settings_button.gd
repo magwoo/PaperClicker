@@ -6,6 +6,7 @@ var tween: Tween = Tween.new()
 
 onready var info_panel: Panel = $InfoPanel
 onready var info_label: Label = $InfoPanel/Label
+onready var focus_player: AudioStreamPlayer = $FocusPlayer
 
 
 func _ready() -> void:
@@ -20,6 +21,7 @@ func _ready() -> void:
 
 
 func focus() -> void:
+	focus_player.play()
 	tween.interpolate_property(
 		self, 'rect_scale', self.rect_scale, Global.f2v(1.1),
 		0.1, Tween.TRANS_BACK, Tween.EASE_OUT

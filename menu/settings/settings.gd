@@ -4,6 +4,8 @@ extends Control
 var opened: bool = false
 
 onready var margin_container: MarginContainer = $MarginContainer
+onready var close_player: AudioStreamPlayer = $ClosePlayer
+onready var open_player: AudioStreamPlayer = $OpenPlayer
 onready var tween: Tween = Tween.new()
 
 
@@ -19,6 +21,7 @@ func _process(delta: float) -> void:
 
 func open() -> void:
 	opened = true
+	open_player.play()
 	tween.interpolate_property(
 		self, 'rect_min_size', self.rect_min_size, Vector2(256.0, 0.0),
 		0.2, Tween.TRANS_BACK, Tween.EASE_OUT
@@ -32,6 +35,7 @@ func open() -> void:
 
 func close() -> void:
 	opened = false
+	close_player.play()
 	tween.interpolate_property(
 		self, 'rect_min_size', self.rect_min_size, Vector2.ZERO,
 		0.2, Tween.TRANS_BACK, Tween.EASE_OUT

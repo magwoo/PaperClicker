@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://menu/settings/settings_button.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/rubik.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://menu/shop/button/select.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -45,3 +46,7 @@ custom_fonts/font = SubResource( 2 )
 text = "OPEN"
 align = 1
 valign = 1
+
+[node name="FocusPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -5.0
