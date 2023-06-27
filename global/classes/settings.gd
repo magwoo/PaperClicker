@@ -2,8 +2,8 @@ class_name Settings
 extends Reference
 
 
-var sounds: bool = true setget update_sounds
-var music: bool = true setget update_music
+var sounds: bool = false setget update_sounds
+var music: bool = false setget update_music
 
 
 func update_music(value: bool) -> void:

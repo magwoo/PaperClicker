@@ -34,6 +34,7 @@ func load_data() -> void:
 	paper_per_click = SDK.player.get_data('paper_per_click', paper_per_click)
 	items = SDK.player.get_data('items', items, true)
 	settings = str2var(SDK.player.get_data('settings', var2str(settings)))
+	TranslationServer.set_locale(SDK.player.language)
 
 
 func wait_sync() -> void:
