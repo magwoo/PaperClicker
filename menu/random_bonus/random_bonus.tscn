@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/fonts/rubik.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://menu/random_bonus/random_bonus.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 0.756863, 0.294118, 0.301961 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="DynamicFont" id=4]
+size = 36
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 0.301961 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="RandomBonus" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -96.0
+margin_right = 360.0
+margin_bottom = -20.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="Title" type="Label" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+text = "+120.5M"
+align = 1
+valign = 1
+
+[node name="InfoPanel" type="Panel" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = -96.0
+margin_right = -40.0
+margin_bottom = -96.0
+custom_styles/panel = SubResource( 6 )
+
+[node name="Info" type="Label" parent="Panel/InfoPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+text = "РЕКЛАМА"
+align = 1
+valign = 1
