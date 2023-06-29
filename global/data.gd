@@ -7,6 +7,8 @@ signal score_added(scores)
 const ITEMS_COUNT: int = 12
 const AUTOSAVE_TIME: float = 90.0
 
+var reward_id: int = 0
+
 var scores: int = 0 setget set_scores
 var paper_per_second: int = 0
 var paper_per_click: int = 1

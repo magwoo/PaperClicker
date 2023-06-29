@@ -73,7 +73,7 @@ func _open_debug_preloader_ad() -> void:
 	self.add_child(window)
 
 
-func _open_debug_reward_ad() -> void:
+func _open_debug_reward_ad(args) -> void:
 	var window: RewardAdClass = RewardAdClass.new(5)
 
 	window.connect('window_closed', ads, '_reward_ad_closed')

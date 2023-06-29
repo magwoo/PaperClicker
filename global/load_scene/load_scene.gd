@@ -26,10 +26,10 @@ func animate() -> void:
 	var end_pos: Vector2 = start_pos - Vector2(0.0, 64.0)
 	tween.interpolate_property(
 		logo, 'rect_position', start_pos, end_pos,
-		0.6, Tween.TRANS_BACK, Tween.EASE_OUT, 0.9
+		0.4, Tween.TRANS_BACK, Tween.EASE_OUT, 0.9
 	); tween.interpolate_property(
 		logo, 'modulate', Color.transparent, Color.white,
-		0.4, Tween.TRANS_LINEAR, Tween.EASE_OUT, 0.9
+		0.3, Tween.TRANS_LINEAR, Tween.EASE_OUT, 0.9
 	); tween.start()
 
 

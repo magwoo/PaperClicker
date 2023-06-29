@@ -5,6 +5,7 @@ extends Button
 const PANEL_SEPARATION: float = 16.0
 const LOCKED_ICON: StreamTexture = preload('res://menu/shop/icons/locked.svg')
 const GREEN_COLOR: Color = Color(0.639216, 1, 0.560784)
+const YELLOW_COLOR: Color = Color(1, 0.962255, 0.560784)
 const RED_COLOR: Color = Color(1, 0.560784, 0.560784)
 
 export var item_name: String = 'example name'
@@ -15,6 +16,8 @@ export var item_id: int = 0
 export var item_cost: int = 5
 
 var press_number_packed: PackedScene = preload('res://gameplay/press_number/press_number.tscn')
+var ad_timer: Timer = Timer.new()
+var is_ad_avaiable: bool = true
 
 onready var info_panel: Panel = $InfoPanel
 onready var focus_player: AudioStreamPlayer = $FocusPlayer
@@ -35,7 +38,9 @@ func _ready() -> void:
 	self.connect('mouse_exited', self, 'unfocus')
 	self.connect('button_down', self, 'press')
 	self.connect('button_up', self, 'unpress')
+	SDK.ads.connect('reward_ad_closed', self, 'ad_complete')
 	Events.connect('update_items', self, 'update_item')
+	ad_timer.connect('timeout', self, 'unlock_ad')
 	self.rect_pivot_offset = self.rect_size / 2.0
 	info_name.text = self.tr(item_name)
 	info_tpps.text = '+{0} {1}'.format([Global.cut_number(paper_per_second), self.tr('#PPS')])
@@ -43,6 +48,7 @@ func _ready() -> void:
 	count_text.text = 'x%s' % Global.cut_number(Data.items[item_id])
 	texture.texture = item_icon
 	texture.rect_pivot_offset = texture.rect_size / 2.0
+	self.add_child(ad_timer)
 	update_item()
 	update_cost()
 	unfocus()
@@ -50,8 +56,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var cost: int = get_cost()
-	if Data.scores < cost: info_cost.self_modulate = RED_COLOR
-	else: info_cost.self_modulate = GREEN_COLOR
+	if Data.scores >= cost: info_cost.self_modulate = GREEN_COLOR
+	elif is_ad_avaiable: info_cost.self_modulate = YELLOW_COLOR
+	else: info_cost.self_modulate = RED_COLOR
+	update_cost()
 
 
 func focus() -> void:
@@ -96,7 +104,11 @@ func unfocus() -> void:
 
 func press() -> void:
 	if Data.scores < get_cost():
-		tween.interpolate_method(self, '_sin_rotation', 0.0, PI * 2.0, 0.2)
+		if is_ad_avaiable:
+			SDK.ads.show_reward()
+			Data.reward_id = item_id
+		else:
+			tween.interpolate_method(self, '_sin_rotation', 0.0, PI * 2.0, 0.2)
 	else:
 		Data.add_score(-get_cost(), false)
 		Data.paper_per_second += paper_per_second
@@ -121,10 +133,16 @@ func unpress() -> void:
 	); tween.start()
 
 
+func unlock_ad() -> void:
+	is_ad_avaiable = true
+
+
 func update_cost() -> void:
-	info_cost.text = '{0}: {1}'.format(
-		[self.tr('#COST'), Global.cut_number(get_cost())]
-	); count_text.text = 'x%s' % Global.cut_number(Data.items[item_id])
+	var result: String
+	if Data.scores < get_cost() && is_ad_avaiable: result = self.tr('#AD')
+	else: result = Global.cut_number(get_cost())
+	info_cost.text = '{0}: {1}'.format([self.tr('#COST'), result])
+	count_text.text = 'x%s' % Global.cut_number(Data.items[item_id])
 
 
 func update_item() -> void:
@@ -141,6 +159,14 @@ func get_cost() -> int:
 	cost = pow(cost, 1.0 + 0.1 * Data.items[item_id]) * 10.0
 	cost = pow(cost, 1.0 + 0.2 * item_id)
 	return int(cost)
+
+
+func ad_complete(success: bool) -> void:
+	if Data.reward_id != item_id || !success: return
+	Data.items[Data.reward_id] += 1
+	is_ad_avaiable = false
+	ad_timer.start(90.0)
+	Data.wait_sync()
 
 
 func _sin_rotation(t: float) -> void:
