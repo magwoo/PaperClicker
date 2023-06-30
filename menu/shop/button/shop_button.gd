@@ -166,6 +166,7 @@ func ad_complete(success: bool) -> void:
 	Data.items[Data.reward_id] += 1
 	is_ad_avaiable = false
 	ad_timer.start(90.0)
+	Data.reward_id = -1
 	Data.wait_sync()
 
 

@@ -3,16 +3,32 @@ extends Node
 
 var time: float = 0.0
 var current_multiplier: int = 1
+var bonus_timer: Timer = Timer.new()
+var bonus_packed: PackedScene = load('res://menu/random_bonus/random_bonus.tscn')
 
 var cut_chars: Array = ['K', 'M', 'B', 'T', 'Q']
 
 
+func _init() -> void:
+	randomize()
+
+
 func _ready() -> void:
-	pass
+	bonus_timer.connect('timeout', self, 'open_bonus_window')
+	self.add_child(bonus_timer)
+	bonus_timer.one_shot = true
+	bonus_timer.start(rand_range(30.0, 120.0))
 
 
 func _process(delta: float) -> void:
 	time += delta
+
+
+func open_bonus_window() -> void:
+	var bonus_scene: RandomBonus = bonus_packed.instance()
+	bonus_scene.bonus_size = int(Data.scores * rand_range(0.8, 5.0))
+	bonus_timer.start(rand_range(45.0, 120.0))
+	self.add_child(bonus_scene)
 
 
 func cut_number(number: float) -> String:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gameplay/game.gd" type="Script" id=1]
 [ext_resource path="res://menu/shop/shop.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://gameplay/scripts/temp_node.gd" type="Script" id=6]
 [ext_resource path="res://gameplay/press_number/press_number.tscn" type="PackedScene" id=7]
 [ext_resource path="res://menu/settings/settings.tscn" type="PackedScene" id=8]
-[ext_resource path="res://menu/random_bonus/random_bonus.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -60,5 +59,3 @@ margin_bottom = 720.0
 
 [node name="Temp" type="Node" parent="."]
 script = ExtResource( 6 )
-
-[node name="RandomBonus" parent="." instance=ExtResource( 9 )]
