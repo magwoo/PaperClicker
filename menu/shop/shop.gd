@@ -13,6 +13,7 @@ onready var button_container: VBoxContainer = $MarginContainer/VBoxContainer
 onready var margin_container: MarginContainer = $MarginContainer
 onready var open_player: AudioStreamPlayer = $OpenPlayer
 onready var close_player: AudioStreamPlayer = $ClosePlayer
+onready var self_container: HBoxContainer = self.get_parent()
 onready var viewport: Viewport = self.get_viewport()
 
 
@@ -29,8 +30,8 @@ func _process(delta: float) -> void:
 	if !_is_mouse_open(menu_width * 1.5) && opened: close()
 	var mouse_pos: Vector2 = self.get_global_mouse_position()
 	if mouse_pos.y < 128.0: self.margin_top += SENSETIVITY
-	if mouse_pos.y > viewport.size.y - 128.0: self.margin_top -= SENSETIVITY
-	var bottom_line: float = -button_container.rect_size.y + viewport.size.y / 1.5
+	if mouse_pos.y > self_container.rect_size.y - 128.0: self.margin_top -= SENSETIVITY
+	var bottom_line: float = -button_container.rect_size.y + self_container.rect_size.y / 1.5
 	self.margin_top = clamp(self.margin_top, bottom_line, 0.0)
 
 
@@ -68,4 +69,4 @@ func close() -> void:
 
 
 func _is_mouse_open(value: float) -> bool:
-	return get_global_mouse_position().x > viewport.size.x - value
+	return get_global_mouse_position().x > self_container.rect_size.x - value

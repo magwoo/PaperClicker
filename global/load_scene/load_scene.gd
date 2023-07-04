@@ -22,7 +22,7 @@ func _input(event: InputEvent) -> void:
 
 
 func animate() -> void:
-	var start_pos: Vector2 = viewport.size / 2.0 - logo.rect_size / 2.0
+	var start_pos: Vector2 = self.rect_size / 2.0 - logo.rect_size / 2.0
 	var end_pos: Vector2 = start_pos - Vector2(0.0, 64.0)
 	tween.interpolate_property(
 		logo, 'rect_position', start_pos, end_pos,
