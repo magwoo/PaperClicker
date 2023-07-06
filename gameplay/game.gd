@@ -59,7 +59,7 @@ func update_scores(scores: int = -1) -> void:
 
 
 func update_viewport() -> void:
-	gameplay_container.rect_min_size.y = self.rect_size.y
+	gameplay_container.rect_min_size.y = viewport.get_visible_rect().size.y
 
 
 func _second() -> void:
