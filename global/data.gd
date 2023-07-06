@@ -5,7 +5,7 @@ signal scores_changed(scores)
 signal score_added(scores)
 
 const ITEMS_COUNT: int = 12
-const AUTOSAVE_TIME: float = 90.0
+const AUTOSAVE_TIME: float = 30.0
 
 var reward_id: int = 0
 
