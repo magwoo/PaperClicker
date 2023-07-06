@@ -14,6 +14,8 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	SDK.ads.connect('any_ad_started', self, 'mute')
+	SDK.ads.connect('any_ad_closed', self, 'unmute')
 	bonus_timer.connect('timeout', self, 'open_bonus_window')
 	self.add_child(bonus_timer)
 	bonus_timer.one_shot = true
@@ -49,3 +51,11 @@ func cut_number(number: float) -> String:
 
 func f2v(f: float) -> Vector2:
 	return Vector2(f, f)
+
+
+func mute() -> void:
+	AudioServer.set_bus_mute(0, true)
+
+
+func unmute() -> void:
+	AudioServer.set_bus_mute(0, false)

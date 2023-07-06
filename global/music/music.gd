@@ -6,11 +6,17 @@ const music: AudioStream = preload('res://global/music/music.mp3')
 var tween: Tween = Tween.new()
 
 onready var player: AudioStreamPlayer = $AudioStreamPlayer
+onready var viewport: Viewport = self.get_viewport()
 
 
 func _ready() -> void:
 	player.stream = music
 	self.add_child(tween)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_FOCUS_IN: resume()
+	if what == NOTIFICATION_WM_FOCUS_OUT: pause()
 
 
 func play() -> void:
