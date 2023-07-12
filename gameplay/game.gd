@@ -27,9 +27,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	scores_label.rect_rotation = lerp(
-		scores_label.rect_rotation, sin(time * 3.0) * 9.0, 0.25 * delta * 120.0
+		scores_label.rect_rotation, sin(time * 3.0) * 9.0, min(1.0, 0.25 * delta * 120.0)
 	); scores_label.rect_scale = lerp(
-		scores_label.rect_scale, Vector2.ONE, 0.25 * delta * 120.0
+		scores_label.rect_scale, Vector2.ONE, min(1.0, 0.25 * delta * 120.0)
 	)
 
 	if multiplier > Global.current_multiplier + 1:

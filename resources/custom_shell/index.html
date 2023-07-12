@@ -6,6 +6,11 @@
 	<title>$GODOT_PROJECT_NAME</title>
 	<style type='text/css'>
 
+		html {
+			overflow-y: hidden;
+			overflow-x: hidden;
+		}
+
 		body {
 			touch-action: none;
 			margin: 0;
@@ -14,6 +19,7 @@
 			text-align: center;
 			background-color: black;
 		}
+
 
 		#canvas {
 			display: block;
@@ -252,6 +258,17 @@ $GODOT_HEAD_INCLUDE
 		function lround(object, tag) {
 			object.record[tag] = +object.record[tag].toFixed(2);
 			return object;
+		}
+		function save_data(data) {
+			localStorage.setItem("data", data)
+		}
+		function load_data() {
+			let data = localStorage.getItem("data")
+			if (data == null) {
+				return ""
+			} else {
+				return data
+			}
 		}
 	</script>
 </body>
