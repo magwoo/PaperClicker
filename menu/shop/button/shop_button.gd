@@ -64,6 +64,7 @@ func _physics_process(delta: float) -> void:
 
 func focus() -> void:
 	if is_locked(): return
+	self.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	focus_player.play()
 	tween.interpolate_property(
 		self, 'rect_scale', self.rect_scale, Global.f2v(1.15),
@@ -103,6 +104,7 @@ func unfocus() -> void:
 
 
 func press() -> void:
+	if is_locked(): return
 	if Data.scores < get_cost():
 		if is_ad_avaiable:
 			SDK.ads.show_reward()

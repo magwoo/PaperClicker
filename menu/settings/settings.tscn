@@ -74,7 +74,7 @@ func _pressed() -> void:
 	SDK.leaderboard.open_by_var('scores')
 "
 
-[node name="Settings" type="Control"]
+[node name="Settings" type="Control" groups=["settings_root"]]
 margin_right = 128.0
 margin_bottom = 720.0
 rect_min_size = Vector2( 360, 0 )

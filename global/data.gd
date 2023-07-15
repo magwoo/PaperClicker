@@ -68,7 +68,6 @@ func set_scores(value: int) -> void:
 func local_save_data() -> void:
 	if OS.has_feature("JavaScript"):
 		var data: Array = [scores, last_sync_scores]
-		print('saved ', data)
 		window.save_data(to_json(data))
 	else:
 		var manager: File = File.new()
@@ -83,7 +82,6 @@ func local_load_data() -> void:
 		var jdata: String = window.load_data()
 		if jdata == '': return
 		var data: Array = str2var(jdata)
-		print('loaded ', data)
 		if !scores == data[1]: return
 		scores = data[0]
 		last_sync_scores = data[1]

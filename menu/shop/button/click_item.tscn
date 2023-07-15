@@ -16,6 +16,7 @@ corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
 [node name="ClickItem" instance=ExtResource( 1 )]
+mouse_default_cursor_shape = 2
 script = ExtResource( 3 )
 item_icon = null
 

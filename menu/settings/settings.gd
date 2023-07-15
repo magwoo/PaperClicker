@@ -1,7 +1,8 @@
+class_name SettingsMenu
 extends Control
 
 
-var opened: bool = false
+var is_opened: bool = false
 
 onready var margin_container: MarginContainer = $MarginContainer
 onready var close_player: AudioStreamPlayer = $ClosePlayer
@@ -15,13 +16,13 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if get_global_mouse_position().x > 420.0 && opened: close()
+	if get_global_mouse_position().x > 420.0 && is_opened: close()
 	if get_global_mouse_position().y > 420.0: return
-	if get_global_mouse_position().x < 128.0 && !opened: open()
+	if get_global_mouse_position().x < 128.0 && !is_opened: open()
 
 
 func open() -> void:
-	opened = true
+	is_opened = true
 	self.show()
 	open_player.play()
 	tween.interpolate_property(
@@ -36,7 +37,7 @@ func open() -> void:
 
 
 func close() -> void:
-	opened = false
+	is_opened = false
 	close_player.play()
 	tween.interpolate_property(
 		self, 'rect_min_size', self.rect_min_size, Vector2.ZERO,

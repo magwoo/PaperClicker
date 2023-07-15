@@ -21,6 +21,7 @@ margin_right = 324.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 focus_mode = 0
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 1 )
@@ -37,6 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 360.0
 margin_right = 276.0
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="Label" type="Label" parent="InfoPanel"]

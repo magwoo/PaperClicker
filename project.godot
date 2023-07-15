@@ -45,6 +45,11 @@ _global_script_classes=[ {
 "path": "res://menu/settings/settings_button.gd"
 }, {
 "base": "Control",
+"class": "SettingsMenu",
+"language": "GDScript",
+"path": "res://menu/settings/settings.gd"
+}, {
+"base": "Control",
 "class": "Shop",
 "language": "GDScript",
 "path": "res://menu/shop/shop.gd"
@@ -62,6 +67,7 @@ _global_script_class_icons={
 "RandomBonus": "",
 "Settings": "",
 "SettingsButton": "",
+"SettingsMenu": "",
 "Shop": "",
 "ShopButton": ""
 }
