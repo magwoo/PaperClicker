@@ -166,6 +166,7 @@ func get_cost() -> int:
 func ad_complete(success: bool) -> void:
 	if Data.reward_id != item_id || !success: return
 	Data.items[Data.reward_id] += 1
+	if Data.items[item_id] == 1: Events.emit_signal('update_items')
 	is_ad_avaiable = false
 	ad_timer.start(90.0)
 	Data.reward_id = -1
